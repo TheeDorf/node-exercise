@@ -21,9 +21,8 @@ userRouter.get("/:id?", async (req, res, next) => {
 userRouter.post("/", async (req, res, next) => {
   
    try {
-      console.log(req.body.firstName)
+      
     let newUser = req.body;
-    console.log(newUser);
     let data = await db.add(newUser);
     res.json(data);
    } catch (error) {
@@ -36,7 +35,7 @@ userRouter.put("/:id", async (req, res, next) => {
    try {
     let { id } = req.params;
     let updatedUser = req.body;
-    data = await db.update(id, updatedUser);
+    let data = await db.update(id, updatedUser);
 
     res.json(data);
   } catch (error) {

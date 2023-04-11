@@ -6,10 +6,10 @@ import router from "./routes/index.js";
 
 const app = express();
 
-app.use("/api", router);
 
 app.use(express.json());
 
+app.use("/api", router);
 
 
 // TODO: use the imported router to handle all requests
