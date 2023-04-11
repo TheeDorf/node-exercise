@@ -1,9 +1,9 @@
 import express from "express";
-import db from "../mockdb";
+import db from "../mockdb/index.js";
 
-const router = express.Router();
+const userRouter = express.Router();
 
-router.get('/:id?', async (req, res, next) => {
+userRouter.get('/:id?', async (req, res, next) => {
     try {  
       let { id } = req.params;
     let data;
@@ -20,21 +20,21 @@ router.get('/:id?', async (req, res, next) => {
     }
  });
  
- router.post('/', async (req, res, next) => {
+ userRouter.post('/', async (req, res, next) => {
     try {
-      const newUser = req.body;
-      const data = await db.add(newUser);
+      let newUser = req.body;
+      let data = await db.add(newUser);
       res.json(data);
     } catch (error) {
        next(error);
     }
  });
  
- router.put('/:id', async (req, res, next) => {
+ userRouter.put('/:id', async (req, res, next) => {
     try {
-     const { id } = req.params;
-     const updatedUser = req.body;
-     const data = await db.updated(id,updatedUser);
+     let { id } = req.params;
+     let updatedUser = req.body;
+     let data = await db.updated(id, updatedUser);
       
      res.json(data);
     } catch (error) {
@@ -42,10 +42,10 @@ router.get('/:id?', async (req, res, next) => {
     }
  });
  
- router.delete('/:id', async (req, res, next) => {
+ userRouter.delete('/:id', async (req, res, next) => {
     try {
-       const { id } = req.params;
-       const data = await db.remove(id);
+       let { id } = req.params;
+       let data = await db.remove(id);
 
        res.json(data); 
     } catch (error) {
@@ -53,4 +53,4 @@ router.get('/:id?', async (req, res, next) => {
     }
  });
 
-export default router;
+export default userRouter;

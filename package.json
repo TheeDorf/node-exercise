@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec babel-node --trace-warnings --trace-uncaught --async-stack-traces server.js",
     "start": "babel-node --trace-warnings --trace-uncaught --async-stack-traces server.js"
+    
   },
+  "type": "module",
   "keywords": [
     "node",
     "express.js",

@@ -1,7 +1,7 @@
 import express from "express";
-import config from "./config";
+import config from "./config/index.js"
 // TODO: import router from routes/
-import router from "./routes"
+import router from "./routes/index.js";
 
 
 const app = express();
