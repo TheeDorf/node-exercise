@@ -47,7 +47,7 @@ userRouter.delete("/:id", async (req, res, next) => {
  
    try {
     let { id } = req.params;
-   let  data = await db.remove(id);
+   let data = await db.remove(id);
 
     res.json(data);
   } catch (error) {
